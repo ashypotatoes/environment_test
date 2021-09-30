@@ -10,6 +10,7 @@ RSpec.describe 'Creating a book', type: :feature do
     expect(page).to have_content('harry potter')
   end
 
+  # test for blank input on Title field
   # scenario 'invalid inputs' do
   #   visit new_book_path
   #   fill_in 'Title', with: ''
@@ -20,13 +21,26 @@ RSpec.describe 'Creating a book', type: :feature do
   # test for new attributes listed in step 6, bullet 2
   scenario 'valid inputs' do
     visit new_book_path
-    fill_in 'Title', with: 'harry potter'
     fill_in 'Author', with: 'J.K Rowling'
+    click_on 'Create Book'
+    visit books_path
+    expect(page).to have_content('J.K Rowling')
+  end
+
+  scenario 'valid inputs' do
+    visit new_book_path
     fill_in 'Price', with: '16.99'
+    click_on 'Create Book'
+    visit books_path
+    expect(page).to have_content('16.99')
+  end
+
+  scenario 'valid inputs' do
+    visit new_book_path
     fill_in 'Published Date', with: 'Sat, 10 Nov 2007'
     click_on 'Create Book'
     visit books_path
-    expect(page).to have_content('harry potter')
+    expect(page).to have_content('Sat, 10 Nov 2007')
   end
 
 end
