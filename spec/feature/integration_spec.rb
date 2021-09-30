@@ -21,6 +21,7 @@ RSpec.describe 'Creating a book', type: :feature do
   # test for new attributes listed in step 6, bullet 2
   scenario 'valid inputs' do
     visit new_book_path
+    fill_in 'Title', with: 'harry potter'
     fill_in 'Author', with: 'J.K Rowling'
     click_on 'Create Book'
     visit books_path
@@ -29,6 +30,7 @@ RSpec.describe 'Creating a book', type: :feature do
 
   scenario 'valid inputs' do
     visit new_book_path
+    fill_in 'Title', with: 'harry potter'
     fill_in 'Price', with: '16.99'
     click_on 'Create Book'
     visit books_path
@@ -37,10 +39,13 @@ RSpec.describe 'Creating a book', type: :feature do
 
   scenario 'valid inputs' do
     visit new_book_path
-    fill_in 'Published Date', with: 'Nov 10 2007'
+    fill_in 'Title', with: 'harry potter'
+    select '2016', :from => 'book[published_date(1i)]'
+    select 'June', :from => 'book[published_date(2i)]'
+    select '25', :from => 'book[published_date(3i)]'
     click_on 'Create Book'
     visit books_path
-    expect(page).to have_content('Nov 10 2007')
+    expect(page).to have_content('2016-06-25')
   end
 
 end

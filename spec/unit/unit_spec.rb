@@ -17,7 +17,7 @@ RSpec.describe Book, type: :model do
 
   # test for author
   subject do
-    described_class.new(author: 'J.K Rowling')
+    described_class.new(title: 'harry potter', author: 'J.K Rowling')
   end
 
   it 'isvalid with valid attributes' do
@@ -31,7 +31,7 @@ RSpec.describe Book, type: :model do
 
   # test for price
   subject do
-    described_class.new(price: '16.99')
+    described_class.new(title: 'harry potter', price: '16.99')
   end
 
   it 'isvalid with valid attributes' do
@@ -45,7 +45,7 @@ RSpec.describe Book, type: :model do
 
   # test for published date
   subject do
-    described_class.new(published_date: 'Sat, 10 Nov 2007')
+    described_class.new(title: 'harry potter', published_date: '10/09/2007')
   end
 
   it 'isvalid with valid attributes' do
