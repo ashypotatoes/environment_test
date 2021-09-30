@@ -25,7 +25,7 @@ RSpec.describe Book, type: :model do
   end
 
   it 'is not valid without a name' do
-    subject.author = nil
+    subject.title = nil
     expect(subject).not_to be_valid
   end
 
@@ -39,7 +39,7 @@ RSpec.describe Book, type: :model do
   end
 
   it 'is not valid without a name' do
-    subject.price = nil
+    subject.title = nil
     expect(subject).not_to be_valid
   end
 
@@ -53,7 +53,7 @@ RSpec.describe Book, type: :model do
   end
 
   it 'is not valid without a name' do
-    subject.published_date = nil
+    subject.title = nil
     expect(subject).not_to be_valid
   end
 end
