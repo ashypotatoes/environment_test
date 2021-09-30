@@ -3,6 +3,9 @@
 <p>
   <strong>Title:</strong>
   <%= @book.title %>
+  <%= @book.author %>
+  <%= @book.price %>
+  <%= @book.published_date %>
 </p>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
